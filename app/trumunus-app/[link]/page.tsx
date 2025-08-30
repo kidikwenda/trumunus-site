@@ -8,7 +8,7 @@ export default function RedirectPage() {
 
   useEffect(() => {
     // monta o deep link usando o parâmetro de rota
-    const paramLink = Buffer.from(link, 'base64').toString('utf8') || "trumunus://open";
+    const paramLink = atob(link) || "trumunus://open";
     setDeepLink(paramLink);
   }, [link]);
 
