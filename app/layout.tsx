@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portal Padel",
-  description: "Portal para o fomento do desporto de Padel em Angola",
-  keywords: 'portal, padel, web, tistech',
+  title: "Trumunus App",
+  description: "Portal Trumunus",
+  keywords: 'portal, trumunus, web, a2q, a2q entretenimento',
   authors: {
-    name: 'TIS',
-    url: 'https://tistech.co.ao'
+    name: 'A2Q Entretenimento',
+    url: 'https://trumunus'
   }
 };
 
