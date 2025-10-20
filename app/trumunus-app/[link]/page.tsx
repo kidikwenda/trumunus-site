@@ -9,6 +9,8 @@ export default function RedirectPage() {
   useEffect(() => {
     // monta o deep link usando o parâmetro de rota
     const paramLink = Buffer.from(link, 'base64').toString('utf8') || "trumunus://open";
+    console.clear()
+    console.log(paramLink)
     setDeepLink(paramLink);
   }, [link]);
 
@@ -25,19 +27,19 @@ export default function RedirectPage() {
       const isAndroid = /android/i.test(userAgent);
       const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
 
-      if (isAndroid) {
-        window.location.href = deepLink;
-        setTimeout(() => {
-          window.location.href = androidLink;
-        }, 2000);
-      } else if (isIOS) {
-        window.location.href = deepLink;
-        setTimeout(() => {
-          window.location.href = iosLink;
-        }, 2000);
-      } else {
-        window.location.href = webLink;
-      }
+      // if (isAndroid) {
+      //   window.location.href = deepLink;
+      //   setTimeout(() => {
+      //     window.location.href = androidLink;
+      //   }, 2000);
+      // } else if (isIOS) {
+      //   window.location.href = deepLink;
+      //   setTimeout(() => {
+      //     window.location.href = iosLink;
+      //   }, 2000);
+      // } else {
+      //   window.location.href = webLink;
+      // }
     } catch (error) {
       console.error("Erro no redirecionamento:", error);
     }
