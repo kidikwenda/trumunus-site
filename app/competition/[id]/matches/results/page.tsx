@@ -1,7 +1,9 @@
 "use client";
 
-import CompetitionPage from "../page";
+import { CompetitionMatches } from "@/components/ui/CompetitionMatches";
+import { useParams } from "next/navigation";
 
 export default function Page() {
-  return <CompetitionPage results={true} />;
+    const { id } = useParams<{ id: string }>();
+  return <CompetitionMatches competitionId={id} results={true} />;
 }
