@@ -1,11 +1,15 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.kidikwenda.trumunus",
       "sha256_cert_fingerprints": [
-        "1A:BF:EF:95:2E:00:3E:8F:B8:DA:E7:5B:69:CA:F6:F8:54:CE:DD:07:B5:34:96:06:F8:69:40:9C:91:5E:CE:50"
+        "1A:BF:EF:95:2E:00:3E:8F:B8:DA:E7:5B:69:CA:F6:F8:54:CE:DD:07:B5:34:96:06:F8:69:40:9C:91:5E:CE:50",
+        "CD:55:8E:C3:76:0C:DC:B5:56:62:10:A9:FD:01:7C:E2:8C:05:CA:D4:42:CF:10:5A:B9:28:02:7C:50:CB:3E:A7"
       ]
     }
   }
