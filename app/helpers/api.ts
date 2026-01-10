@@ -67,8 +67,18 @@ export function getCompetitionCurrentMatches(id: string, results?: boolean): any
   return apiFetch(url, { method: "GET" });
 }
 
+export function getCompetitionEditionMatches(id: string, results?: boolean): any {
+  const url = `matches/by-date/${new Date().toISOString().slice(0, 10)}/next/1000/0/competitions/editions/${id}`;
+  return apiFetch(url, { method: "GET" });
+}
+
+export function getClassificationByCompetitionEdition(competitionEditionId: string) {
+    const url = `competitions/editions/classification/${competitionEditionId}`;
+  return apiFetch(url, { method: "GET" });
+  }
+
 export function getCompetitionEditionById(id: string) {
-  return apiFetch("competition-editions/" + id, { method: "GET" });
+  return apiFetch("competitions/editions/" + id, { method: "GET" });
 }
 
 export function getTeamById(id: string) {
