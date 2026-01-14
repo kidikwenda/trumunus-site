@@ -12,7 +12,6 @@ export function CompetitionEditionHeader({ id }: CompetitionMatchesProps) {
   const [bgColor, setBgColor] = useState<string>("rgba(0,0,0)");
   const [foreColor, setForeColor] = useState<string>("rgba(255,255,255)");
 
-
   useEffect(() => {
     if (!id) return;
 

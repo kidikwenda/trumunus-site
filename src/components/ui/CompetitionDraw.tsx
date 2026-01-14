@@ -55,12 +55,12 @@ export function CompetitionDraw({ competitionEditionId }: CompetitionMatchesProp
 
 
   return (
-    <div className="w-screen min-h-screen bg-black pt-[110px] text-white">
+    <div className="w-screen min-h-screen bg-black pt-[100px] text-white">
       {/* HEADER */}
       <CompetitionEditionHeader id={competitionEditionId} />
 
       {/* TABS */}
-      <div className="w-full flex border-b border-white/10 bg-black z-50">
+      <div className="w-full fixed flex border-b border-white/10 bg-black z-50">
         <button
           onClick={() => setActiveTab("tabela")}
           className={`flex-1 py-3 text-center text-sm font-semibold transition
@@ -83,41 +83,44 @@ export function CompetitionDraw({ competitionEditionId }: CompetitionMatchesProp
           Jogos
         </button>
       </div>
-      {!loading && !error && activeTab === "jogos" && (
-        <>
-          {Array.from(matchList.keys()).map((key) =>
-            Array.from(matchList.get(key) || []).length > 0 && (
-              <div key={key} className="p-2">
-                <div className="text-xs uppercase mb-3">
-                  {new Date(key).toLocaleDateString("pt-PT", {
-                    weekday: "long",
-                    day: "2-digit",
-                    month: "long",
-                  })}
-                </div>
 
-                {Array.from(matchList.get(key) || []).map((match: any) => (
-                  <div key={match.id} className="mb-4">
-                    <i className="flex justify-center items-center opacity-70">{isNaN(match.phase) ? match.phase : `${match.phase}º jornada`}</i>
-                    <GameRowWeb match={match} />
+      <div className="w-full p-5">
+
+        {!loading && !error && activeTab === "jogos" && (
+          <>
+            {Array.from(matchList.keys()).map((key) =>
+              Array.from(matchList.get(key) || []).length > 0 && (
+                <div key={key} className="p-2">
+                  <div className="text-xs uppercase mb-3">
+                    {new Date(key).toLocaleDateString("pt-PT", {
+                      weekday: "long",
+                      day: "2-digit",
+                      month: "long",
+                    })}
                   </div>
-                ))}
+
+                  {Array.from(matchList.get(key) || []).map((match: any) => (
+                    <div key={match.id} className="mb-4">
+                      <i className="flex justify-center items-center opacity-70">{isNaN(match.phase) ? match.phase : `${match.phase}º jornada`}</i>
+                      <GameRowWeb match={match} />
+                    </div>
+                  ))}
+                </div>
+              )
+            )}
+
+            {matchList.size === 0 && (
+              <div className="flex justify-center items-center h-[60vh] opacity-70">
+                Nenhum jogo disponível.
               </div>
-            )
-          )}
+            )}
+          </>
+        )}
 
-          {matchList.size === 0 && (
-            <div className="flex justify-center items-center h-[60vh] opacity-70">
-              Nenhum jogo disponível.
-            </div>
-          )}
-        </>
-      )}
-
-      {!loading && !error && activeTab === "tabela" && (
-        <CompetitionTableWeb groups={table} />
-      )}
-
+        {!loading && !error && activeTab === "tabela" && (
+          <CompetitionTableWeb groups={table} />
+        )}
+      </div>
 
       {/* LOADING */}
       {loading && <div className="flex justify-center items-center h-screen">A carregar jogos…</div>}

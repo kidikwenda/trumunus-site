@@ -8,8 +8,6 @@ interface CompetitionMatchesProps {
 
 export function CompetitionTableWeb({ groups }: CompetitionMatchesProps) {
 
-  console.log(999, groups)
-
   return (
     <div className="w-screen min-h-screen bg-black px-5">
       {groups?.length && groups?.map(
